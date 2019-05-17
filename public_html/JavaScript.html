@@ -10,20 +10,106 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="style.css" rel="stylesheet" type="text/css" media="all"/>
+        
+        <script>
+	     function calculateAverage() {
+	
+        var students = [['Arturo Perez', 99], ['Charly Brown', 70], ['Iron Man', 88], ['Pink Panter', 96]];
+
+        var average = 0;
+
+        for (var i=0; i < students.length; i++) {
+                average += students[i][1];
+                var avg = (average/students.length);
+        }
+
+        //document.getElementById("results1").innerHTML = "Average grade: " + (average)/students.length);
+         document.getElementById("result1").innerHTML = "Average grade: " + avg;
+
+                if (avg < 60){
+                  document.getElementById("result").innerHTML = "The average for group X : F";
+                } 
+                else if (avg < 70) {
+                  document.getElementById("result").innerHTML = "The average for group X : D"; 
+                } 
+                else if (avg < 80) {
+                  document.getElementById("result").innerHTML = "The average for group X : C"; 
+                }
+                else if (avg < 90) {
+                  document.getElementById("result").innerHTML = "The average for group X : B"; 
+                }
+                else if (avg < 100) {
+                  document.getElementById("result").innerHTML = "The average for group X : A"; 
+                }
+        }
+         
+		</script>
+		
     </head>
+    
     <body>
-		<h1><a href="index.html">Home</a></h1>
-		<h4>For Loop Example</h4>
-        <h6>This example performs a for loop.</h6>
-        <h6>Enter a number: </h6>
-		<input name="insertnumber" type="text" id="number">
-        <input type="button" onclick="createCount()" value="Result" >
-        <h6 id="result"></h6>
-		<h4>While Loop Example</h4>
-		<h6>This example performs a while loop.</h6>
-		<h6>Enter a number: </h6><input name="insertnumber" type="text" id="number1">
-		<input type="button" onclick="createCount1()" value="Result" >
-		<h6 id="result1"></h6>
-                
+		<h2>Loops, Arrays, Variables</h2>    
+	<p>This program returns the average grade of a group and the grade obtained, for this we use an arrangement of students and their
+           notes and a loop sentence to go through the arrangement and deposit the result in variables.</p>
+       
+ <pre><code data-language="javascript">
+
+function calculateAverage() {
+
+        var students = [['Arturo Perez', 99], ['Charly Brown', 70], ['Iron Man', 88], ['Pink Panter', 96]];
+
+  var average = 0;
+
+  for (var i=0; i < students.length; i++) {
+          average += students[i][1];
+          var avg = (average/students.length);
+  }
+
+  document.getElementById("result1").innerHTML = "Average grade: " + avg;
+
+          if (avg < 60){
+            document.getElementById("result").innerHTML = "The average for group X : F";
+          } 
+          else if (avg < 70) {
+            document.getElementById("result").innerHTML = "The average for group X : D"; 
+          } 
+          else if (avg < 80) {
+            document.getElementById("result").innerHTML = "The average for group X : C"; 
+          }
+          else if (avg < 90) {
+            document.getElementById("result").innerHTML = "The average for group X : B"; 
+          }
+          else if (avg < 100) {
+            document.getElementById("result").innerHTML = "The average for group X : A"; 
+          }
+  }
+	 </code></pre>
+	 
+  <div class="col-md-12">
+  <button onclick="calculateAverage()">Average</button><br />
+    <h3>Results</h3>
+    <p id="result1"></p>
+    <p id="result"></p>
+    
+	</div>
+        <h2>JavaScript Functions</h2>
+        
+ <script>
+function myFunction(p1, p2) {
+  return p1 * p2;
+}
+document.getElementById("demo").innerHTML = myFunction(4, 3);
+</script>
+  
+<p>Function performing a calculation, and returns a result:</p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction(p1, p2) {
+  return p1 * p2;
+}
+document.getElementById("demo").innerHTML = myFunction(4, 3);
+</script>
     </body>
 </html>
