@@ -19,29 +19,29 @@ and open the template in the editor.
     </head>
     <body>
         <section>
-        <section class="page-header">
-            <h1 class="project-name"> Arturo R Perez</h1>
-            <h2 class="project-tagline">CIT 261 Portal</h2>
-        </section>
-        <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a><br>
-
-    <center><section id="objects">
-            <section>
-                <p>Javascript has properties, that can be added or removed using methods Click the buttons below to add, insert, or apply a method </p>
+            <section class="page-header">
+                <h1 class="project-name"> Arturo R Perez</h1>
+                <h2 class="project-tagline">CIT 261 Portal</h2>
             </section>
-            <button onclick="addingNew()">add an Object</button>
-            <p id ="add"></p></center>
-    <br>
-    <center><section>
-            <p>Insert a new object.</p>
+            <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a><br>
 
-            <button onclick="testamentsBible()">New Object</button>
-            <p id="bible"></p>
+            <center><section id="objects">
+                    <section>
+                        <p>Javascript has properties, that can be added or removed using methods Click the buttons below to add, insert, or apply a method </p>
+                    </section>
+                    <button onclick="addingNew()">add an Object</button>
+                    <p id ="add"></p></center>
+            <br>
+            <center><section>
+                    <p>Insert a new object.</p>
 
-        </section></center>
-    <br>
-    <center><section>
-                <p> Apply a method from lower case to upper case!. </p>
+                    <button onclick="testamentsBible()">New Object</button>
+                    <p id="bible"></p>
+
+                </section></center>
+            <br>
+            <center><section>
+                    <p> Apply a method from lower case to upper case!. </p>
                 </section>
                 <button onclick = "applyMethod()"> uppercase </button>
                 <p id = "methodApplied"> </p>
@@ -50,33 +50,37 @@ and open the template in the editor.
     <script>
         var book = {name:"Book Of Mormon", pages:"531"};
         // display data from the object
-            
+
         document.getElementById("demo").innerHTML = "The Book of Mormon has " + book.pages + "Pages";
-                function testamentsBible() {
-                'use strict';
-                        let testaments = new Object();
-                        testaments.oldTestament = "Old";
-                        testaments.newTestament = "New";
-                        document.getElementById("bible").innerHTML =
-                        testaments.oldTestament + " and " + testaments.newTestament + " Testaments contain sacred scriptures in the Bible " + "!";
-                }
+        function testamentsBible() {
+            'use strict';
+            let
+            testaments = new Object();
+            testaments.oldTestament = "Old";
+            testaments.newTestament = "New";
+            document.getElementById("bible").innerHTML =
+                    testaments.oldTestament + " and " + testaments.newTestament + " Testaments contain sacred scriptures in the Bible " + "!";
+        }
 
         function addingNew() {
-        let book = {
-        book1: " The Book Of Mormon ",
+            let
+            book = {
+                book1: " The Book Of Mormon ",
                 book2: "Other Books",
-        };
-                book.religious = "best";
-                document.getElementById("add").innerHTML =
-                book.book1 + " is the " + book.religious + " book in the world." + "!";
-                }
+            };
+            book.religious = "best";
+            document.getElementById("add").innerHTML =
+                    book.book1 + " is the " + book.religious + " book in the world." + "!";
+        }
 
         function applyMethod() {
-	let message = "the church of jesuscrist of latter day saints is true!!!";
-	let x = message.toUpperCase();
-	document.getElementById("methodApplied").innerHTML = x;
-}
+            let
+            message = "the church of jesuscrist of latter day saints is true!!!";
+            let
+            x = message.toUpperCase();
+            document.getElementById("methodApplied").innerHTML = x;
+        }
     </script>
-    
+
 </body>
 </html>

@@ -17,39 +17,39 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="css/github-light.css" media="screen">
 
         <style>
-.class1{background-image: url(img/mesmll.jpg); float:left; margin:100px; width:100px; height:100px; cursor:pointer; }
-.class2{ background-image: url(img/mesmll.jpg); float:right; margin:100px; width:100px; height:100px; cursor:pointer; }
-</style>                
-  <script>
-  function toggleClass(el){
-		if(el.className == "class1"){
-			el.className = "class2";
-		} else {
-			el.className = "class1";
-		}
-	} 
+            .class1{background-image: url(img/mesmll.jpg); float:left; margin:100px; width:100px; height:100px; cursor:pointer; }
+            .class2{ background-image: url(img/mesmll.jpg); float:right; margin:100px; width:100px; height:100px; cursor:pointer; }
+        </style>                
+        <script>
+            function toggleClass(me) {
+                if (me.className == "class1") {
+                    me.className = "class2";
+                } else {
+                    me.className = "class1";
+                }
+            }
         </script>
     </head>
-        <body>
-            <section class="page-header">
-                <h1 class="project-name"> Arturo R Perez</h1>
-                <h2 class="project-tagline">CIT 261 Portal</h2>
-            </section>
-                    <a class="link animated fadeInUp delay-30s servicelink" href="index.html">Main Menu</a>
+    <body>
+        <section class="page-header">
+            <h1 class="project-name"> Arturo R Perez</h1>
+            <h2 class="project-tagline">CIT 261 Portal</h2>
+        </section>
+        <a class="link animated fadeInUp delay-30s servicelink" href="index.html">Main Menu</a>
 
-    <section class="main-content">
-        <p> IN HTML elements accessed with JavaScript has an object that allows to writ a CSS property and give it a value</p>
-	    
+        <section class="main-content">
+            <p> IN HTML elements accessed with JavaScript has an object that allows to writ a CSS property and give it a value</p>
 
-      <center><h2>Example</h2></center>	
-	<p>This code will change position on each picture whenever is manipulated.</p>
-    </section>
 
-	 
-  <div class="col-md-12">
-    <div class="class1" onclick="toggleClass(this)"></div>
- </div>
-                    <br>
-                    
+            <center><h2>Example</h2></center>	
+            <p>This code will change position on each picture whenever is manipulated.</p>
+        </section>
+
+
+        <div class="col-md-12">
+            <div class="class1" onclick="toggleClass(this)"></div>
+        </div>
+        <br>
+
     </body>
 </html>
