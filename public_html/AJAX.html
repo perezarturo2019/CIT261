@@ -6,11 +6,64 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> CIT 261 Portal | Arturo R Perez | BYU-Idaho</title>
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
+        <link href="css/theme.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/stylesheets" media="screen">
+
     </head>
+
     <body>
-        <div>TODO write content</div>
+        <section class="page-header">
+            <h1 class="project-name"> Arturo R Perez</h1>
+            <h2 class="project-tagline">CIT 261 Portal</h2>
+        </section>
+        <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a>
+        <div class="ajax-container">
+            <input type="button" id="btnAjaxCall" value="Ajax Call" />
+            <div class="display-data">
+
+            </div>
+        </div>
+        <script>src="https://code.jquery.com/jquery-3.4.1.min.js"
+                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+                crossorigin="anonymous"</script>
+
+        <script>
+            var count = 0;
+            $("btnAjaxCall").click(function () {
+                fetchDataAndDisplay();
+            });
+            function fetchDataAndDisplay() {
+                $.ajax({
+                    url: "https://jsonplaceholder.typicode.com/posts",
+                    method: "GET"
+                }).done(function (data) {
+                    var start = count > 0 ? 5 * count : count;
+                    var end = start + 5;
+                    var str = '';
+                    for (var i = start; i < end; i++) {
+                        str += '<div class="item-details">' +
+                                'User Id id = ' + data[i].userId + '<br />' +
+                                'Tititle is = ' + data[i].title + '<br />' +
+                                '</div>';
+                    }
+                    if (end >= data.length - 5) {
+                        count = 0;
+                        $(".display-data").append("End Of List. Start Again!");
+                        return;
+                    }
+                    count++;
+                    $(".display-data").empty();
+                    $(".display-data").append(str);
+
+                    $(".display-data").append(str);
+                })
+            }
+        </script>
     </body>
 </html>
