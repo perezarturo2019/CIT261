@@ -131,7 +131,10 @@ a {
 .project-name {
   margin-top: 0;
   margin-bottom: 0.1rem; }
-
+.project-tagline {
+    text-align: center;
+    text-decoration-color: #269abc;
+}
 .main-content :first-child {
   margin-top: 0; }
 .main-content img {
@@ -316,7 +319,9 @@ img {
   max-width: 1100px;
 }
 .stage:hover .ball {
-  animation: slide 4s alternate;
+  animation: slide 7s ease-in-out;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
 }
 .ball {
   background: red;
@@ -324,28 +329,6 @@ img {
   height: 50px;
   position: absolute;
   width: 50px;
-}
-.HolyGrail {
-  display: flex;
-  height: 100%;
-    
-
-}
-
-.HolyGrail-header,
-.HolyGrail-footer {
-  flex: none;
-}
-
-.HolyGrail-body {
-  display: flex;
-  flex: 1 0 auto;
-  padding: auto;
-}
-
-.HolyGrail-content {
-  margin-top: auto;
-      
 }
 
 #TransitionEvents{
@@ -381,7 +364,6 @@ h3 {
   font-size: 20px;
 }
 
-/* Chrome, Safari, Opera */
 @-webkit-keyframes mymove {
   from {top: 0px;}
   to {top: 200px;}
