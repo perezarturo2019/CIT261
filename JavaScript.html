@@ -17,102 +17,128 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="css/stylesheets" media="screen">
 
     </head>
-    <center><body>
-            <section class="page-header">
-                <h1 class="project-name"> Arturo R Perez</h1>
-                <h2 class="project-tagline">CIT 261 Portal</h2>
-            </section>
-            <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a><br>
+    <body>
+        <section class="page-header">
+            <h1 class="project-name"> Arturo R Perez</h1>
+            <h2 class="project-tagline">CIT 261 Portal</h2>
+        </section>
+        <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a>
+        <script>
+                        function runIfConditional() {
 
-            <script>
-//wear shoes
-            
-                function wear() {
-    var weather = document.getElementById("types").value;
-    var shoes;
-    //selection
-    if (weather == "hot") {
-    shoes = "Wear Sandals!";
-                    } else if (weather == "rain") {
-                        shoes = "Wear Galoshes!";
-                    } else if (weather == "snow") {
-                        shoes = "Wear Boots!";
-                    }
-                    else {
-                        shoes = "Type hot, rain or snow";
-                    }
-                    document.getElementById("shoesdiv").innerHTML = shoes;
+                                console.log(document.getElementById('InputA').value);
+                                console.log(document.getElementById('InputB').value);
+
+                var resultsValue = "Entered Values: ";
+                if (document.getElementById('InputA').value == document.getElementById('InputB').value) {
+                    resultsValue += "|" +
+                            document.getElementById('InputA').value +
+                            "| / |" +
+                            document.getElementById('InputB').value +
+                            "| are equal to";
                 }
-                // for loop
-
-                function sumOfOdds() {
-
-                    var n = parseFloat(document.getElementById('integer').value);
-
-                    // declare variables. Set skip to count odd numbers only
-                    var skip = 2;
-                    var i = 1;
-                    var sum = 0;
-
-                    // adds all odd integers between 1 and n
-                    for (i = 1; i <= n; i += skip) {
-                        sum += i;
-                        display = "<b><br/>The sum of all of the odd integers between 1 & "
-                                + n + " is " + sum + "."
-                    }
-
-                    // Display the message.
-                    document.getElementById('displayDiv').innerHTML = display;
+                else {
+                    resultsValue += "|" +
+                            document.getElementById('InputA').value +
+                            "| / |" +
+                            document.getElementById('InputB').value +
+                            "| are not equal to";
                 }
 
-                // Arrays
-                var count;
+                resultsValue += " and ";
 
-                function test() {
-                    var length = parseFloat(document.getElementById("len").value);
-                    var array = new Array(length);
-                    for (var i = 0; i < array.length; i++) {
-                        array[i] = 1 + i * 3;
-                    }
-                    count = countEvens(array);
-                    var nums = array.slice(0, length);
-                    document.getElementById("result").innerHTML = "There are " + count + " even integers. The tested array is: " + nums + "<br>";
+                if (document.getElementById('InputA').value === document.getElementById('InputB').value) {
+                    resultsValue += "|" +
+                            document.getElementById('InputA').value +
+                            "| / |" +
+                            document.getElementById('InputB').value +
+                            "| are equal value and equal type<br/><br/>";
+                }
+                else {
+                    resultsValue += "|" +
+                            document.getElementById('InputA').value +
+                            "| / |" +
+                            document.getElementById('InputB').value +
+                            "| are not equal value and equal type<br/><br/>";
                 }
 
-                function countEvens(list) {
-                    var numBer = 0;
-                    for (var i = 0; i < list.length; i++) {
-                        if (list[i] == 2 * Math.floor(list[i] / 2)) {
-                            numBer++;
-                        }
-                    }
-                    return numBer;
+                console.log(resultsValue);
+                document.getElementById("results").innerHTML = resultsValue;
+            }
+
+            function runForConditional() {
+                var resultsValue = "";
+                // Setting a Variable
+                var stringCheck = document.getElementById('IntegerA').value;
+
+                console.log(stringCheck);
+
+                // Checking to see if the variable is a number or not
+                if (!isNaN(stringCheck)) {
+                    resultsValue = runLoop(stringCheck);
                 }
-            </script>
+                else {
+                    resultsValue = "You did not Enter a pure Integer. You Entered |" + stringCheck + "|";
+                }
 
-            <!--if else loop   -->
+                console.log(resultsValue);
+                document.getElementById("results").innerHTML = resultsValue;
+            }
 
-            How is the weather today?<input type="text" id="types" >
+            function runLoop(count)
+            {
+                var resultsValue = "Loops: ";
 
-            <button type= "button" onclick= "wear()">Display</button>
+                for (var ii = 0; ii < count; ii++) {
+                    resultsValue += "Repeat Loop: " + ii + "<br/>";
+                }
 
-            <div id="shoesdiv"></div><br><br>
-            <!-- for if loop -->
+                return resultsValue;
+            }
 
-            Pick a number: <input type="text" id="integer">
-            <button type="button" onclick= "sumOfOdds()">What is the sum?</button>
-            <div id="displayDiv"></div> 
 
-            <!-- Arrays -->
+            function demonstrateAssociativeArray() {
+                var resultsValue = "Results by Associative Array or Hash: |" + document['getElementById']('AssociativeString').value;
+                resultsValue += "| <br/>Results by Element Accessor style: |";
+                resultsValue += document.getElementById('AssociativeString').value;
+                resultsValue += "|";
 
-            <h2>Counting Even Integers</h2>
-            <input type="text" id="len" size="4">
-            <button type="button" onclick="test()">Count</button>
-            <div id="result"></div>
+                console.log(resultsValue);
+                document['getElementById']("results").innerHTML = resultsValue;
+            }
 
-            <script>
-                document.getElementById("Footer").innerHTML = readTextFile("footer.html");
-            </script>
-            <!-- End Footer Include -->
-        </body></center>
-</html>
+        </script>
+
+    <center><div class="container body-content">
+            <div class="row">
+
+                <div class="row">
+                    <div class="col-md-12"><hr /></div>
+                </div>
+                <div class="col-md-12">
+                    <label>Enter Something to Compare: </label><br> <input id="InputA" type="text" value=""><br/>
+                        <label>Enter Something to Compare: </label><br> <input id="InputB" type="text" value=""><br/>
+                            <button onclick="runIfConditional()">Run If Conditional</button><br /><br />
+                            </div>
+                            <div class="col-md-12">
+                                <label>Enter a Numerical Value: </label><br> <input id="IntegerA" type="text" value=""><br/>
+                                    <button onclick="runForConditional()">Run For Loop</button><br /><br />
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>Enter a Value to Demonstrate Associate Array: </label><br> <input id="AssociativeString" type="text" value=""><br/>
+                                    <button onclick="demonstrateAssociativeArray()">Parse String</button><br /><br />
+                            </div>
+                            <div class="col-md-12">
+                                <p id="results"></p>
+                            </div>
+                            </div>
+                            </div>
+                            <!-- Begin Footer Include -->
+                            <div id="Footer"></div></center>
+                            <script>
+                                document.getElementById("Footer").innerHTML = readTextFile("footer.html");
+                            </script>
+                            <!-- End Footer Include -->
+                            </body>
+                            </html>

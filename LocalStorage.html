@@ -6,102 +6,18 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> CIT 261 Portal | Arturo R Perez | BYU-Idaho</title>
-        <meta name="description" content=" Assignemnt portal page for Ricardo Ahuire in CIT 261 JavaScript Mobile Development at Brigham Young University-Idaho.">
-        <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
-        <link href="css/theme.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="css/stylesheets" media="screen">
-<style>
-            #frm{
-                padding: 10px;
-                border: 2px solid;
-            }
-            
-            #cart{
-                margin-top: 30px;
-                padding: 10px;
-                border: 2px solid;
-                background: #31b0d5;
-            }
-            
-            th, td, tr {
-                border: 1px solid;
-            }
-        </style>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-        <section class="page-header">
-            <h1 class="project-name"> Arturo R Perez</h1>
-            <h2 class="project-tagline">CIT 261 Portal</h2>
-        </section>
-        <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a>
-        
-        <script>function save() {
-                var fieldInput = document.getElementById('textInput').value;
-                localStorage.setItem('text', fieldInput);
-            }
-            function load() {
-                var storedInput = localStorage.getItem('text');
-                if(storedInput) {
-                    document.getElementById('textInput').value = storedInput;
-                }
-            }
-            
-            // shopping cart code
-            inames = [];
-            iqtyp = [];
-            iprice = [];
-            
-            function addItem() {
-                inames.push(document.getElementById('pname').value),
-                iqtyp.push(parseInt(document.getElementById('pqty').value)),
-                iprice.push(parseInt(document.getElementById('price').value)),
-                
-                displayCart();
-            };
-            
-            function displayCart(){
-                cartdata = '<table><tr><th>Product Name</th><th>Quantity</th><th>Price</th><th>Total</th></tr>';
-                total = 0;
-                
-                
-                for (i=0; i<inames.length; i++) {
-                    total += iqtyp[i] * iprice[i]
-                    cartdata += "<tr><td>" + inames[i] + "</td><td>" + 
-                    iqtyp[i] + "</td><td>" + iprice[i] + "</td><td>"; 
-                }
-                
-                cartdata += '<tr><td></td><td></td><td></td><td>' +
-                total + '</td></tr></table>';
-                
-        
-                document.getElementById('cart').innerHTML = cartdata;
-        
-                }
-                
-                </script>
-                
-    <body onload="load()">
-        <input type="text" id="textInput"/>
-        <input type="button" value="save" onclick="save()"/><br>
-        
-        <h2> Shopping Cart Local Storage using Javascript</h2><br>
-        
-        <div id='frm'>
-            <label>Item</label>
-            <input id='pname' type='text'><br>
-            <label>Quantity</label>
-            <input id='pqty' type='number'><br>
-            <label>Price Per Item</label>
-            <input id='price' type='number'><br>
-            <button onclick='addItem()'> Add To Cart</button>
-        </div>
-        
-        <div id='cart'></div>
-            
-            
+        <script>
+            localStorage.setItem('me', 'Arturo Perez');
+            let val = localStorage.getItem('me');
+            console.log(val);
+            let key = 
+        </script>
+    <body>
+        <input type="text" id="textfield"/>
+        <input type="button" value="=save"/>
     </body>
 </html>
