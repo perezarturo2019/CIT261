@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> CIT 261 Portal | Arturo R Perez | BYU-Idaho</title>
+        <meta name="description" content=" Assignemnt portal page for Ricardo Ahuire in CIT 261 JavaScript Mobile Development at Brigham Young University-Idaho.">
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
+        <link href="css/theme.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/github-light.css" media="screen">
+
+    </head>
+    <center><body>
+            <section class="page-header">
+                <h1 class="project-name"> Arturo R Perez</h1>
+                <h2 class="project-tagline">CIT 261 Portal</h2>
+            </section>
+            <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a>
+
+        <center><h2>Convert a string into a date object.</h2>
+
+
+            <p id="demo"></p></center><br>
+
+
+        <script>
+            var text = '{"name":"Arturo", "birth":"Mar-05-1971", "city":"Puebla"}';
+            var obj = JSON.parse(text, function (key, value) {
+                if (key == "birth") {
+                    return new Date(value);
+                } else {
+                    return value;
+                }
+            });
+            document.getElementById("demo").innerHTML = obj.name + ", " + obj.birth;
+
+
+        </script>
+        <h2>Craeting an JSON string out of a javascript object</h2>
+        <script>
+            //stringify
+
+            var contact = new Object();
+            contact.firstname = "Claire";
+            contact.lastname = "Perez";
+            contact.phone = ["444-2200", "777-1088"];
+
+            var memberF = new Array();
+            memberF[0] = "lastname";
+            memberF[1] = "firstname";
+            memberF[2] = "phone";
+
+            var jsonText = JSON.stringify(contact, memberF, "\t");
+            document.write(jsonText)
+
+        </script>
+
+    </body></center>
+</html>

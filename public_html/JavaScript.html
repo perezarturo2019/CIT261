@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> CIT 261 Portal | Arturo R Perez | BYU-Idaho</title>
+        <meta name="description" content=" Assignemnt portal page for Ricardo Ahuire in CIT 261 JavaScript Mobile Development at Brigham Young University-Idaho.">
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
+        <link href="css/theme.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/stylesheets" media="screen">
+
+    </head>
+    <center><body>
+            <section class="page-header">
+                <h1 class="project-name"> Arturo R Perez</h1>
+                <h2 class="project-tagline">CIT 261 Portal</h2>
+            </section>
+            <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a><br>
+
+            <script>
+//wear shoes
+            
+                function wear() {
+    var weather = document.getElementById("types").value;
+    var shoes;
+    //selection
+    if (weather == "hot") {
+    shoes = "Wear Sandals!";
+                    } else if (weather == "rain") {
+                        shoes = "Wear Galoshes!";
+                    } else if (weather == "snow") {
+                        shoes = "Wear Boots!";
+                    }
+                    else {
+                        shoes = "Type hot, rain or snow";
+                    }
+                    document.getElementById("shoesdiv").innerHTML = shoes;
+                }
+                // for loop
+
+                function sumOfOdds() {
+
+                    var n = parseFloat(document.getElementById('integer').value);
+
+                    // declare variables. Set skip to count odd numbers only
+                    var skip = 2;
+                    var i = 1;
+                    var sum = 0;
+
+                    // adds all odd integers between 1 and n
+                    for (i = 1; i <= n; i += skip) {
+                        sum += i;
+                        display = "<b><br/>The sum of all of the odd integers between 1 & "
+                                + n + " is " + sum + "."
+                    }
+
+                    // Display the message.
+                    document.getElementById('displayDiv').innerHTML = display;
+                }
+
+                // Arrays
+                var count;
+
+                function test() {
+                    var length = parseFloat(document.getElementById("len").value);
+                    var array = new Array(length);
+                    for (var i = 0; i < array.length; i++) {
+                        array[i] = 1 + i * 3;
+                    }
+                    count = countEvens(array);
+                    var nums = array.slice(0, length);
+                    document.getElementById("result").innerHTML = "There are " + count + " even integers. The tested array is: " + nums + "<br>";
+                }
+
+                function countEvens(list) {
+                    var numBer = 0;
+                    for (var i = 0; i < list.length; i++) {
+                        if (list[i] == 2 * Math.floor(list[i] / 2)) {
+                            numBer++;
+                        }
+                    }
+                    return numBer;
+                }
+            </script>
+
+            <!--if else loop   -->
+
+            How is the weather today?<input type="text" id="types" >
+
+            <button type= "button" onclick= "wear()">Display</button>
+
+            <div id="shoesdiv"></div><br><br>
+            <!-- for if loop -->
+
+            Pick a number: <input type="text" id="integer">
+            <button type="button" onclick= "sumOfOdds()">What is the sum?</button>
+            <div id="displayDiv"></div> 
+
+            <!-- Arrays -->
+
+            <h2>Counting Even Integers</h2>
+            <input type="text" id="len" size="4">
+            <button type="button" onclick="test()">Count</button>
+            <div id="result"></div>
+
+            <script>
+                document.getElementById("Footer").innerHTML = readTextFile("footer.html");
+            </script>
+            <!-- End Footer Include -->
+        </body></center>
+</html>
