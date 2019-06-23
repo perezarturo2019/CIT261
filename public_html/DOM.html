@@ -6,11 +6,83 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> CIT 261 Portal | Arturo R Perez | BYU-Idaho</title>
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
+        <link href="css/theme.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/stylesheets" media="screen">
+        <style>
+            table {
+                width: 400px;
+                border: 1px;
+                object-position: center;
+            }
+        </style>
     </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+    <section class="page-header">
+        <h1 class="project-name"> Arturo R Perez</h1>
+        <h2 class="project-tagline">CIT 261 Portal</h2>
+    </section>
+    <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a><br><br>
+    <h1 align="center">Test Your Skills!</h1>
+
+    <center><table>
+            <tr>
+                <td><div id="number1">1</div></td>
+                <td><div>+</div></td>
+                <td><div id="number2">2</div></td>
+                <td><div>=</div></td>
+                <td><input id="myText" type="text"></input></td>
+                <td><input type="button" value="Check"></input></td>
+
+            </tr>
+        </table></center>
+    <script type="text/javascript">
+
+    var number1;
+    var number2;
+
+    number1 = Math.floor((Math.random() * 10) + 1);
+    number2 = Math.floor((Math.random() * 10) + 1);
+    document.getElementById("number1").innerHTML=number1;
+    document.getElementById("number2").innerHTML = number2;
+
+    //Answer
+        var answer = number1 + number2;
+
+    //add click handler with check answer
+
+        var btn = document.querySelector('input[type=button][value=Check]');
+
+
+        btn.onclick = function ()
+        {
+            var checkAnswer = document.querySelector('input[type=text]');
+            var value = checkAnswer.value;
+            if (value == answer)
+            {
+                alert('You are correct! Good Job');
+            }
+            else {
+                alert('Try again, the answer was ' + answer);
+            }
+
+            document.querySelector('input[type=text]').value = "";
+            document.getElementById('number1').innerHTML = "";
+            document.getElementById('number2').innerHTML = "";
+            number1 = Math.floor((Math.random() * 10) + 1);
+            number2 = Math.floor((Math.random() * 10) + 1);
+            document.getElementById('number1').innerHTML = number1;
+            document.getElementById('number2').innerHTML = number2;
+
+            answer = number1 + number2;
+
+
+        };
+    </script>
+</body>
+
 </html>
