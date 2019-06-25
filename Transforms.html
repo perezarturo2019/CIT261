@@ -13,21 +13,128 @@ and open the template in the editor.
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
         <link href="css/theme.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="css/stylesheet" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
+        <style type="text/css">
 
-        </head>
-        <body>
-            <section class="page-header">
-                <h1 class="project-name"> Arturo R Perez</h1>
-                <h2 class="project-tagline">CIT 261 Portal</h2>
-            </section>
-                    <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a>
-        <center><h3 id="3d"> Transform in 3D</h3></center>
-        <center><p> CSS3 allows to transform a shape in 3D, a perspective attribute is needed  </p></center>
-        <center><section class="squareCont">
-                <div id="square">
-                <figure class="legend"><br>3D Transform</figure>
-                </div>
-            </section></center>
-        </body>
+            .showbox {
+                float: left;
+                margin: 4em 1em;
+                width: 100px;
+                height: 60px;
+                border: 2px solid green;
+                background-color: #fff;
+                line-height: 60px;
+                text-align: center;
+                -webkit-transition: 1s ease-in-out;
+                -moz-transition: 1s ease-in-out;
+                -o-transition: 1s ease-in-out;
+                transition: 1s ease-in-out;
+            }
+            .showbox.slideright:hover {
+                -webkit-transform: translate(3em,0);
+                -moz-transform: translate(3em,0);
+                -o-transform: translate(3em,0);
+                -ms-transform: translate(3em,0);
+                transform: translate(3em,0);
+            }
+            .showbox1 {
+                float: left;
+                margin: 4em 1em;
+                width: 100px;
+                height: 100px;
+                border: 2px solid yellow;
+                background-color: #fff;
+                line-height: 60px;
+                text-align: center;
+                text-decoration-color: black;
+                -webkit-transition: 1s ease-in-out;
+                -moz-transition: 1s ease-in-out;
+                -o-transition: 1s ease-in-out;
+                transition: 1s ease-in-out;
+            }
+            .showbox1.slideInDown:hover {
+                -webkit-transform: rotate(360deg) scale(2);
+                -moz-transform: rotate(360deg) scale(2);
+                -o-transform: rotate(360deg) scale(2);
+                -ms-transform: rotate(360deg) scale(2);
+                transform: rotate(360deg) scale(2);
+            }
+
+            .showbox2 {
+                float: left;
+                margin: 4em 1em;
+                width: 100px;
+                height: 170px;
+                border: 2px solid blue;
+                background-color: #fff;
+                line-height: 60px;
+                text-align: center;
+                text-decoration-color: black;
+                -webkit-transition: 3s ease-in;
+                -moz-transition: 3s ease-in;
+                -o-transition: 3s ease-in;
+                transition: 3s ease-in;
+            }
+            .showbox2 {
+                background-color: #fff;
+                -webkit-transition: 2s ease-in-out;
+                -moz-transition: 2s ease-in-out;
+                -o-transition: 2s ease-in-out;
+                transition: 2s ease-in-out;
+            }
+
+
+            .showbox2:hover {
+                -webkit-transform: translate(540px,-200px);
+                -moz-transform: translate(540px,-200px);
+                -o-transform: translate(540px,-200px);
+                -ms-transform: translate(540px,-200px);
+                transform: translate(540px,-200px);
+            }
+            .showbox2:hover {
+                -webkit-transform: rotate(70deg);
+                -moz-transform: rotate(70deg);
+                -o-transform: rotate(70deg);
+                -ms-transform: rotate(70deg);
+                transform: rotate(70deg);
+            }
+
+            .showbox3 {
+                float: left;
+                margin: 4em 1em;
+                width: 120px;
+                height: 80px;
+                border: 2px solid magenta;
+                background-color: #fff;
+                line-height: 60px;
+                text-align: center;
+                text-decoration-color: black;
+                -webkit-transition: 1s ease-in-out;
+                -moz-transition: 1s ease-in-out;
+                -o-transition: 1s ease-in-out;
+                transition: 1s ease-in-out;
+            }
+            .showbox3.scale:hover {
+                -webkit-transform: scale(2);
+                -moz-transform: scale(2);
+                -o-transform: scale(2);
+                -ms-transform: scale(2);
+                transform: scale(2);
+            }
+        </style>
+    </head>
+    <body>
+        <section class="page-header">
+            <h1 class="project-name"> Arturo R Perez</h1>
+            <h2 class="project-tagline">CIT 261 Portal</h2>
+        </section>
+        <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a><br><br>
+
+
+    <center><h2>Move your mouse to animate the objects below</h2></center><br>
+    <div class="showbox slideright">box 1</div>
+    <div class="showbox1 slideInDown">box 2</div>
+    <div class="showbox2">box 3</div>
+    <div class="showbox3 scale">box 4</div>
+</body>
 </html>
