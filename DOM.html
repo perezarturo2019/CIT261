@@ -13,77 +13,130 @@ and open the template in the editor.
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
         <link href="css/theme.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="css/stylesheets" media="screen">
-        <style>
-            table {
-                width: 400px;
-                border: 1px;
-                object-position: center;
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
+        <script>
+
+            var cars = null;
+
+            function getJSONFile() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "/CIT261/json/carlist.html", true);
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        cars = null;
+
+                        cars = JSON.parse(this.responseText);
+
+                        showCars();
+                    }
+                };
+                xhttp.send();
             }
-        </style>
+
+            function deleteCar(i) {
+                cars.records.splice(i, 1);
+                showCars();
+            }
+
+            function showCars() {
+                document.getElementById("div_cars").innerHTML = "";
+                var result = "";
+                try {
+                    for (var i = 0; i < cars.records.length; i++) {
+                        var divCar = document.createElement("div");
+                        var divInfo = document.createElement("div");
+                        divInfo.classList.add('width75');
+                        var textnode = document.createTextNode("Vehicle: " + cars.records[i].carYear + " " + cars.records[i].carMake + ", Model: " + cars.records[i].model);
+
+                        divInfo.appendChild(textnode);
+
+                        divCar.appendChild(divInfo);
+                        document.getElementById("div_cars").appendChild(divCar);
+                    }
+                } catch (e) {
+                }
+                finally {
+                }
+            }
+
+            function insertCarBefore() {
+                var divCars = document.getElementById("div_cars");
+                var newCarRecord = document.createElement("div");
+
+                var newCarText = document.createTextNode("Vehicle: " + document.getElementById('car_year').value + " " + document.getElementById('car_make').value + ", Model: " + document.getElementById('car_model').value);
+
+                newCarRecord.appendChild(newCarText);
+                divCars.insertBefore(newCarRecord, divCars.childNodes[0]);
+            }
+
+            function appendCarAfter() {
+                var divCars = document.getElementById("div_cars");
+                var newCarRecord = document.createElement("div");
+
+                var newCarText = document.createTextNode("Vehicle: " + document.getElementById('car_year').value + " " + document.getElementById('car_make').value + ", Model: " + document.getElementById('car_model').value);
+
+                newCarRecord.appendChild(newCarText);
+
+                divCars.appendChild(newCarRecord);
+            }
+            function insertBefore2() {
+                var divCars = document.getElementById("div_cars");
+                var newItem = document.createElement("h2");
+                var h1text = document.createTextNode("MY CONTACTS");
+                newItem.appendChild(h1text);
+                divCars.insertBefore(newItem, divCars.childNodes[0]);
+            }
+
+            function removeFirstVehicle() {
+                var divCars = document.getElementById("div_cars");
+                if (divCars.childNodes.length > 0) {
+                    divCars.removeChild(divCars.childNodes[0]);
+                }
+            }
+
+            function removeLastVehicle() {
+                var divCars = document.getElementById("div_cars");
+                if (divCars.childNodes.length > 0) {
+                    divCars.removeChild(divCars.childNodes[divCars.childNodes.length - 1]);
+                }
+            }
+
+        </script>
     </head>
-    <section class="page-header">
-        <h1 class="project-name"> Arturo R Perez</h1>
-        <h2 class="project-tagline">CIT 261 Portal</h2>
-    </section>
-    <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a><br><br>
-    <h1 align="center">Test Your Skills!</h1>
-
-    <center><table>
-            <tr>
-                <td><div id="number1">1</div></td>
-                <td><div>+</div></td>
-                <td><div id="number2">2</div></td>
-                <td><div>=</div></td>
-                <td><input id="myText" type="text"></input></td>
-                <td><input type="button" value="Check"></input></td>
-
-            </tr>
-        </table></center>
-    <script type="text/javascript">
-
-    var number1;
-    var number2;
-
-    number1 = Math.floor((Math.random() * 10) + 1);
-    number2 = Math.floor((Math.random() * 10) + 1);
-    document.getElementById("number1").innerHTML=number1;
-    document.getElementById("number2").innerHTML = number2;
-
-    //Answer
-        var answer = number1 + number2;
-
-    //add click handler with check answer
-
-        var btn = document.querySelector('input[type=button][value=Check]');
-
-
-        btn.onclick = function ()
-        {
-            var checkAnswer = document.querySelector('input[type=text]');
-            var value = checkAnswer.value;
-            if (value == answer)
-            {
-                alert('You are correct! Good Job');
-            }
-            else {
-                alert('Try again, the answer was ' + answer);
-            }
-
-            document.querySelector('input[type=text]').value = "";
-            document.getElementById('number1').innerHTML = "";
-            document.getElementById('number2').innerHTML = "";
-            number1 = Math.floor((Math.random() * 10) + 1);
-            number2 = Math.floor((Math.random() * 10) + 1);
-            document.getElementById('number1').innerHTML = number1;
-            document.getElementById('number2').innerHTML = number2;
-
-            answer = number1 + number2;
-
-
-        };
-    </script>
-</body>
-
+    <body> 
+        <section class="page-header">
+            <h1 class="project-name"> Arturo R Perez</h1>
+            <h2 class="project-tagline">CIT 261 Portal</h2>
+        </section>
+        <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a><br><br>
+        <header>
+            <h3>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</h3>
+            <hr>
+        </header>
+        <nav>
+        </nav>
+        <main>
+            <div class="main_content">
+                <div class="col_left">
+                    <fieldset>
+                        <p><input type="button" onclick="getJSONFile()" value="Show Vehicle List" ></p>
+                        <p><input type="button" onclick="removeFirstVehicle()" value="Remove First Car" ></p>                       
+                        <p><input type="button" onclick="removeLastVehicle()" value="Remove Last Car" ></p>
+                        <h4>My vehicle List</h4>
+                        <div id="div_cars"></div>                        
+                    </fieldset>
+                </div>
+                <div class="col_right">
+                    <fieldset>
+                        <div><p>Vehicle Year: <input id="car_year" type="text" /></p>
+                            <p>Make: <input id="car_make"  type="text" /></p>
+                            <p>Model: <input id="car_model" type="text" /></p></div>
+                        <input type="button" onclick="insertCarBefore()" value="Add at Top" > 
+                        <input type="button" onclick="appendCarAfter()" value="Add at End" > 
+                    </fieldset>
+                </div>
+            </div>
+        </main>
+    </body>
 </html>
 
