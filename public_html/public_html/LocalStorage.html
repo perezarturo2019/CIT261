@@ -6,11 +6,114 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> CIT 261 Portal | Arturo R Perez | BYU-Idaho</title>
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
+        <link href="css/theme.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/stylesheets" media="screen">
+        <style>
+            #frm{
+                max-height: 900px !important;
+                padding: 20px;
+                text-align: center;
+                margin-right: 40px;
+                margin-left: 40px;
+                flex:1 25%;
+                padding: 5px 5px 5px 5px;
+                flex-direction: column;
+            }
+
+            #cart{
+                margin-top: 30px;
+                padding: 10px;
+                background: black;
+            }
+
+            th, td, tr {
+                border: 1px solid;
+                object-position: center;
+            }
+            h2{
+                text-align: center;
+            }
+        </style>
     </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+
+    <body onload="load()">
+        <section class="page-header">
+            <h1 class="project-name"> Arturo R Perez</h1>
+            <h2 class="project-tagline">CIT 261 Portal</h2>
+        </section>
+        <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a><br><br>
+
+        <h2> Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</h2><br>
+        <h3>The example below shows how data can be store locally, enter an integer or string and click save. Reload the page, the string or integer will be stored</h3><br>
+    <center><input type="text" id="textInput"/>
+        <input type="button" value="save" onclick="save()"/><br></center>
+
+    <h2> Shopping Cart Local Storage using Javascript</h2><br>
+
+    <div id='frm'>
+        <label>Item</label>
+        <input id='pitems' type='text'><br>
+        <label>Quantity</label>
+        <input id='punits' type='number'><br>
+        <label>Price Per Item</label>
+        <input id='price' type='number'><br>
+        <button onclick='addItem()'> Add To Cart</button><br><br>
+
+    </div>
+
+    <center><div id='cart'></div></center>
+    <script>
+// simple storage 
+        function save() {
+            var fieldInput = document.getElementById('textInput').value;
+            localStorage.setItem('text', fieldInput);
+        }
+        function load() {
+            var storedInput = localStorage.getItem('text');
+            if (storedInput) {
+                document.getElementById('textInput').value = storedInput;
+            }
+        }
+// shopping cart
+
+        iItems = [];
+        iUnits = [];
+        iprice = [];
+
+        function addItem() {
+            iItems.push(document.getElementById('pitems').value),
+                    iUnits.push(parseInt(document.getElementById('punits').value)),
+                    iprice.push(parseInt(document.getElementById('price').value)),
+                    displayCart();
+        }
+        ;
+
+        function displayCart() {
+            cartdata = '<table><tr><th>Product Name</th><th>Quantity</th><th>Price</th><th>Total</th></tr>';
+            total = 0;
+
+
+            for (i = 0; i < iItems.length; i++) {
+                total += iUnits[i] * iprice[i];
+                cartdata += "<tr><td>" + iItems[i] + "</td><td>" +
+                        iUnits[i] + "</td><td>" + iprice[i] + "</td><td>";
+            }
+
+            cartdata += '<tr><td></td><td></td><td></td><td>' +
+                    total + '</td></tr></table>';
+
+
+            document.getElementById('cart').innerHTML = cartdata;
+
+        }
+
+    </script>
+
+</body>
 </html>
