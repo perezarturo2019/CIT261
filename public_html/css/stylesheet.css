@@ -104,7 +104,7 @@ a {
   a:hover {
     text-decoration: underline; }
 
-.btn {
+.button {
   display: inline-block;
   margin-bottom: 1rem;
   color: rgba(255, 255, 255, 0.7);
@@ -331,22 +331,23 @@ img {
   width: 50px;
 }
 
-#TransitionEvents{
+#JSEvents{
 
     width: 500px;
     padding-bottom: 25px;
     padding-top: 25px;
 }
 
-#myTrn {
+#myTransition {
     width: 100px;
     height: 100px;
     background: greenyellow;
     transition: width 3s;
 }
 
-#myTrn:hover {
-    width: 500px;
+#myTransition:hover {
+    width: 600px;
+    transition-duration: 4s;
 }
 
 h3 {
@@ -372,4 +373,57 @@ h3 {
 @keyframes mymove {
   from {top: 0px;}
   to {top: 200px;}
+}
+/*DOM*/
+
+h1{
+	font-size: 2.5em;
+	line-height: 1.2em;
+}
+
+h2{
+	  font-size: 2.25em;
+}
+
+.main_content {
+    max-width:960px !important;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Main flexbox */
+
+.main_content {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col_left {
+    flex:1 15%;
+    padding: 5px 5px 5px 5px;
+}
+
+.col_center {
+    flex:1 25%;
+    padding: 5px 5px 5px 5px;
+}
+
+.col_right {
+    flex:1 15%;
+    padding: 5px 5px 5px 5px;
+}
+
+/* Responsive Body */
+
+@media all and (max-width: 960px) {
+
+.main_content {
+    flex-direction: column;
+}
+
+.col_left, .col_right {
+    order: 0;
+}
+  
 }
