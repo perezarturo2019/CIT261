@@ -9,7 +9,6 @@ and open the template in the editor.
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title> CIT 261 Portal | Arturo R Perez | BYU-Idaho</title>
-        <meta name="description" content=" Assignemnt portal page for Ricardo Ahuire in CIT 261 JavaScript Mobile Development at Brigham Young University-Idaho.">
         <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
@@ -26,56 +25,50 @@ and open the template in the editor.
 
     <center><h3>Transitions using Event Listeners</h3>
      <label>Hover over the element below until the transition effect ends.</label></center>
-    <center><div id="TransitionEvents">
-         <div id="myTrn"></div>
-            <nav class="HolyGrail-nav"></nav>
-            <aside class="HolyGrail-ads"></aside></center>   
+    <center><div id="JSEvents">
+         <div id="myTransition"></div>
+    </center>   
 </div>
         <center><label><b>Note:</b> This example does not support Explorer 9 or earlier versions.</label></center>
      </center>
 
-<p>This example uses the addEventListener() method to attach an "animationstart", "animationiteration" and "animationend" event to a DIV element.</p>
+     <center><p>This example uses the addEventListener() method to attach an "animationstart", "animationiteration" and "animationend" event to a DIV element.</p></center>
 
-<div id="myDIV" onclick="myFunction()">Click me to start the animation.</div>
+     <center><div id="myDIV" onclick="myClick()">Click me to start the animation.</div></center>
 
-<script>// Standard syntax
-    document.getElementById("myTrn").addEventListener("transitionend", myFunction5);
+<script>
+    document.getElementById("myTransition").addEventListener("transitionend", myEvent);
 
-    function myFunction5() {
-        this.innerHTML = "transitionend event completed";
+    function myEvent() {
+        this.innerHTML = "Transitionend event completed";
         this.style.backgroundColor = "gold";
     }
     
     var x = document.getElementById("myDIV");
-
-// Start the animation with JavaScript
-function myFunction() {
-  x.style.WebkitAnimation = "mymove 4s 2"; // Code for Chrome, Safari and Opera
-  x.style.animation = "mymove 4s 2";     // Standard syntax
+function myClick() {
+  x.style.WebkitAnimation = "mymove 2s 2"; 
+  x.style.animation = "mymove 2s 2";
 }
-
-// Code for Chrome, Safari and Opera
 x.addEventListener("webkitAnimationStart", myStartFunction);
 x.addEventListener("webkitAnimationIteration", myRepeatFunction);
 x.addEventListener("webkitAnimationEnd", myEndFunction);
 
-// Standard syntax
 x.addEventListener("animationstart", myStartFunction);
 x.addEventListener("animationiteration", myRepeatFunction);
 x.addEventListener("animationend", myEndFunction);
 
 function myStartFunction() {
-  this.innerHTML = "animationstart event occured - The animation has started";
+  this.innerHTML = "The animation has started";
   this.style.backgroundColor = "gold";
 }
 
 function myRepeatFunction() {
-  this.innerHTML = "animationiteration event occured - The animation was played again";
+  this.innerHTML = "A second animation is playing";
   this.style.backgroundColor = "green";
 }
 
 function myEndFunction() {
-  this.innerHTML = "animationend event occured - The animation has completed";
+  this.innerHTML = "The animation completed";
   this.style.backgroundColor = "blue";
 }
 </script> 
