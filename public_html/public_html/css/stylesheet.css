@@ -104,7 +104,7 @@ a {
   a:hover {
     text-decoration: underline; }
 
-.btn {
+.button {
   display: inline-block;
   margin-bottom: 1rem;
   color: rgba(255, 255, 255, 0.7);
@@ -131,7 +131,10 @@ a {
 .project-name {
   margin-top: 0;
   margin-bottom: 0.1rem; }
-
+.project-tagline {
+    text-align: center;
+    text-decoration-color: #269abc;
+}
 .main-content :first-child {
   margin-top: 0; }
 .main-content img {
@@ -316,7 +319,9 @@ img {
   max-width: 1100px;
 }
 .stage:hover .ball {
-  animation: slide 4s alternate;
+  animation: slide 7s ease-in-out;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
 }
 .ball {
   background: red;
@@ -325,45 +330,24 @@ img {
   position: absolute;
   width: 50px;
 }
-.HolyGrail {
-  display: flex;
-  height: 100%;
-    
 
-}
-
-.HolyGrail-header,
-.HolyGrail-footer {
-  flex: none;
-}
-
-.HolyGrail-body {
-  display: flex;
-  flex: 1 0 auto;
-  padding: auto;
-}
-
-.HolyGrail-content {
-  margin-top: auto;
-      
-}
-
-#TransitionEvents{
+#JSEvents{
 
     width: 500px;
     padding-bottom: 25px;
     padding-top: 25px;
 }
 
-#myTrn {
+#myTransition {
     width: 100px;
     height: 100px;
     background: greenyellow;
     transition: width 3s;
 }
 
-#myTrn:hover {
-    width: 500px;
+#myTransition:hover {
+    width: 600px;
+    transition-duration: 4s;
 }
 
 h3 {
@@ -381,7 +365,6 @@ h3 {
   font-size: 20px;
 }
 
-/* Chrome, Safari, Opera */
 @-webkit-keyframes mymove {
   from {top: 0px;}
   to {top: 200px;}
@@ -390,4 +373,47 @@ h3 {
 @keyframes mymove {
   from {top: 0px;}
   to {top: 200px;}
+}
+/*DOM*/
+
+h1{
+	font-size: 2.5em;
+	line-height: 1.2em;
+}
+
+h2{
+	  font-size: 2.25em;
+}
+
+.main_content {
+    max-width:960px !important;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Main flexbox */
+
+.main_content {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col_left {
+    flex:1 15%;
+    padding: 5px 5px 5px 5px;
+}
+
+/* Responsive Body */
+
+@media all and (max-width: 960px) {
+
+.main_content {
+    flex-direction: column;
+}
+
+.col_left, .col_right {
+    order: 0;
+}
+  
 }
