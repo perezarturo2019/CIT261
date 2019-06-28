@@ -9,47 +9,94 @@ and open the template in the editor.
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title> CIT 261 Portal | Arturo R Perez | BYU-Idaho</title>
-        <meta name="description" content=" Assignemnt portal page for Ricardo Ahuire in CIT 261 JavaScript Mobile Development at Brigham Young University-Idaho.">
         <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
         <link href="css/theme.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="css/github-light.css" media="screen">
-
-        <style>
-.class1{background-image: url(img/mesmll.jpg); float:left; margin:100px; width:100px; height:100px; cursor:pointer; }
-.class2{ background-image: url(img/mesmll.jpg); float:right; margin:100px; width:100px; height:100px; cursor:pointer; }
-</style>                
-  <script>
-  function toggleClass(el){
-		if(el.className == "class1"){
-			el.className = "class2";
-		} else {
-			el.className = "class1";
-		}
-	} 
-        </script>
+        <link rel="stylesheet" type="text/css" href="css/stylesheets" media="screen">
+        
     </head>
-        <body>
-            <section class="page-header">
-                <h1 class="project-name"> Arturo R Perez</h1>
-                <h2 class="project-tagline">CIT 261 Portal</h2>
-            </section>
-                    <a class="link animated fadeInUp delay-30s servicelink" href="index.html">Main Menu</a>
+    <body>
+        <section class="page-header">
+            <h1 class="project-name"> Arturo R Perez</h1>
+            <h2 class="project-tagline">CIT 261 Portal</h2>
+        </section>
+        <a class="link animated fadeInUp delay-30s servicelink" href="index.html">Main Menu</a>
+        <div class="main_content">
+        <div class="col_center">
+            <img id="tkd_team" src="/CIT261/img/IMG_0670.jpg"  onmouseout="removeBorder()" width="50%" onmouseover="addBorder()" 
+                         alt="TaeKwonDo Team"></div><br>
+            <div class="col_right" id="buttons">
+                
+                <p class="changeText">Meet the TaeKwonDo Elite Team !!</p>
+                <p><input type="color" id="textcolor" value="#ffffff">
+                    <button class="theButtons" type="button" onclick="changeTextColor()">Change Text Color</button></p>
+			<p><button id="thisButton" class="theButtons" type="button" onclick="zoomIn()">Click to Zoom In</button></p>
+			<p><button class="theButtons" type="button" onclick="zoomOut()">Click to Zoom Out</button></p>
+			<p><button class="theButtons" type="button" onclick="changeRadius()">Click to smooth the </button></p>
+			<p><button class="theButtons" type="button" onclick="changeColor()">Click to choose text color</button></p>
+      
+		</div>
+	</div>
+        <br>
+<script>
+    function changeTextColor() {
+		var color = document.getElementById("textcolor").value;
+		var things = document.getElementsByClassName('changeText');
 
-    <section class="main-content">
-        <p> IN HTML elements accessed with JavaScript has an object that allows to writ a CSS property and give it a value</p>
-	    
+		for (var i = 0; i < things.length; i++){
+			things[i].style.color = color;
+		}
 
-      <center><h2>Example</h2></center>	
-	<p>This code will change position on each picture whenever is manipulated.</p>
-    </section>
+	}
+           function changeBackgroundColor(){
+		var color = document.getElementById("favcolor").value;
+		var things = document.getElementById('changeBox')
 
-	 
-  <div class="col-md-12">
-    <div class="class1" onclick="toggleClass(this)"></div>
- </div>
-                    <br>
-                    
+		things.style.backgroundColor = color;
+
+	}
+
+//picture
+function zoomIn()
+{
+	document.getElementById('tkd_team').style.width = "75%";
+}
+
+function zoomOut()
+{
+	document.getElementById('tkd_team').style.width = "50%";
+	document.getElementById('tkd_team').style.borderRadius = "20px";
+}
+
+function changeRadius()
+{
+	document.getElementById('tkd_team').style.borderRadius = "100px";
+}
+
+function changeColor()
+{
+	var color = prompt("Choose a color");
+	var buttons = document.getElementsByClassName('theButtons');
+	
+	for(var i=0; i < buttons.length; i++)
+    {
+        buttons[i].style.color = color;
+    }
+}
+
+function removeBorder()
+{
+	document.getElementById('tkd_team').style.border = "3px solid black";
+	
+}
+
+function addBorder()
+{
+	document.getElementById('tkd_team').style.border = "none";
+	document.getElementById('tkd_team').style.borderRadius = "60px";
+
+}
+        </script>
     </body>
 </html>
