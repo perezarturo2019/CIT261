@@ -404,16 +404,6 @@ h2{
     padding: 5px 5px 5px 5px;
 }
 
-.col_center {
-    flex:1 25%;
-    padding: 5px 5px 5px 5px;
-}
-
-.col_right {
-    flex:1 15%;
-    padding: 5px 5px 5px 5px;
-}
-
 /* Responsive Body */
 
 @media all and (max-width: 960px) {
