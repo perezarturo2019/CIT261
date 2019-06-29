@@ -22,48 +22,100 @@ and open the template in the editor.
             <h1 class="project-name"> Arturo R Perez</h1>
             <h2 class="project-tagline">CIT 261 Portal</h2>
         </section>
-        <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a>
-        <div class="ajax-container">
-            <input type="button" id="btnAjaxCall" value="Ajax Call" />
-            <div class="display-data">
+        <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a><br>
+        
+   
+    <h1>Check Weather by Zip Code</h1>
+    <h3>Enter your zip code</h3>
+    <input type='text' id='zip'></center>
+    <button>Submit</button>
+         
+    <script>
+       
+      var button = document.querySelector('button');
+      button.addEventListener('click', getWeather);
+        
+      function getWeather() {
+        var body = document.querySelector('body');
+        var button = document.querySelector('button');
+        var data;
+        var zipCode = document.querySelector('#zip').value;
+        var request = 'http://api.openweathermap.org/data/2.5/weather?zip=' + zipCode + '&units=imperial&appid=caa5578a4f9c5fd2b7260cede159d1c7';
+        
+        while(body.lastChild !== button) {
+          body.removeChild(body.lastChild);
+        }
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+        var error = document.querySelector('h3');
+        if(this.readyState === 4 && this.status === 200) {
+            error.textContent = 'The Weather in this Zip Code is:';
+            error.style.color = '#ADFF2F';
+            data = this.responseText;
+            displayData(data);
+        }
+        if(this.readyState === 4 && this.status === 404) {
+            var error = document.querySelector('h3');
+            error.style.color = '#D04931';
+            error.textContent = 'Not a valid Zip Code. Try again!';
+            
+        }
+      };
+      xhttp.open('GET', request, true);
+      xhttp.send();
+      }
+      
+      function displayData(data) {
+        var body = document.querySelector('body');
+        var button = document.querySelector('button');
 
-            </div>
-        </div>
-        <script>src="https://code.jquery.com/jquery-3.4.1.min.js"
-                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-                crossorigin="anonymous"</script>
+        while(body.lastChild !== button) {
+          body.removeChild(body.lastChild);
+        }
+        var section = document.createElement('section');
+        var section2 = document.createElement('section');
+        var tempDiv = document.createElement('div');
+        var temp = document.createElement('p');
+        var tempValue = document.createElement('p');
+        var humidityDiv = document.createElement('div');
+        var humidity = document.createElement('p');
+        var humidityValue = document.createElement('p');
+  
+        body.appendChild(section); 
+        body.appendChild(section2);
+        section2.appendChild(tempDiv); 
+        tempDiv.appendChild(temp);
+        tempDiv.appendChild(tempValue);
+        section2.appendChild(humidityDiv);
+        humidityDiv.appendChild(humidity);
+        humidityDiv.appendChild(humidityValue);
 
-        <script>
-            var count = 0;
-            $("btnAjaxCall").click(function () {
-                fetchDataAndDisplay();
-            });
-            function fetchDataAndDisplay() {
-                $.ajax({
-                    url: "https://jsonplaceholder.typicode.com/posts",
-                    method: "GET"
-                }).done(function (data) {
-                    var start = count > 0 ? 5 * count : count;
-                    var end = start + 5;
-                    var str = '';
-                    for (var i = start; i < end; i++) {
-                        str += '<div class="item-details">' +
-                                'User Id id = ' + data[i].userId + '<br />' +
-                                'Tititle is = ' + data[i].title + '<br />' +
-                                '</div>';
-                    }
-                    if (end >= data.length - 5) {
-                        count = 0;
-                        $(".display-data").append("End Of List. Start Again!");
-                        return;
-                    }
-                    count++;
-                    $(".display-data").empty();
-                    $(".display-data").append(str);
+        var weather = JSON.parse(data);
 
-                    $(".display-data").append(str);
-                })
-            }
+        temp.textContent = 'Temperature';
+        tempValue.innerHTML = weather.main.temp + '&deg;F';
+        humidity.textContent = 'Humidity';
+        humidityValue.textContent = weather.main.humidity + '%';
+        
+        for (var i=0; i<weather.weather.length; i++) {
+
+          var url = 'http://openweathermap.org/img/w/' + weather.weather[i].icon + '.png';
+
+          var weatherType = document.createElement('div');
+          var contents = document.createElement('p');
+          var weatherImage = document.createElement('div');
+          var image = document.createElement('img');
+        
+          section.appendChild(weatherType);
+          weatherType.appendChild(contents);
+          section.appendChild(weatherType);
+           weatherType.appendChild(image);
+          
+          contents.textContent = weather.weather[i].description;
+          contents.style.textTransform = 'capitalize';
+          image.setAttribute('src', url);
+        }
+    }
         </script>
-    </body>
+  </body>
 </html>
