@@ -4,13 +4,135 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+
 <html>
+
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> CIT 261 Portal | Arturo R Perez | BYU-Idaho</title>
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
+        <link href="css/theme.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/stylesheets" media="screen">
+        <style>
+            .circle {
+                display: inline-block;
+                width: 33%;   
+                border-radius: 50%;
+                height: 80px;
+                margin: 30px auto;
+                width: 80px;
+                background: red;
+            }
+
+            .circle.scale {
+                transform: scale(3);
+                transition: all 1500ms;
+            }
+
+            .circle.move {
+                transform: translate(2em);
+                transition: ease, 2000ms;
+            }
+
+            .square {
+                display: inline-block;
+                margin: 30px auto;
+                height: 80px;
+                width: 80px;
+                background-color: mediumspringgreen;
+            }
+
+            .square.rotate {
+                transform: rotate(300deg);
+                transition: transform 4s ease-out;    
+            }
+            @keyframes lr-bounce {
+                from {left: 0px;}
+                to {left: 90%}
+            }
+
+            .bar {
+                animation: lr-bounce 2s infinite alternate;
+                position: absolute;
+                margin-left: 40px;
+                border: 2px;
+                width: 100px;
+                height: 20px;
+                background: seagreen;
+            }
+
+            .bar.paused {
+                animation-play-state: paused;
+            }
+        </style>
     <body>
-        <div>TODO write content</div>
-    </body>
+        <section class="page-header">
+            <h1 class="project-name"> Arturo R Perez</h1>
+            <h2 class="project-tagline">CIT 261 Portal</h2>
+        </section>
+        <a class="link animated fadeInUp delay-1s servicelink" href="index.html">Main Menu</a><br>
+    <center> <h2>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</h2></center>
+    <h3>Animation</h3><br>      
+    <center><div class="bar"></div><br><br>
+        <button id="barButton" onclick="moveBar()">Pause</button><br><br>
+
+        <h3>Transform & Transition</h3><br>
+        <div class="circle"></div>
+        <button id="scaleButton" onclick="scaleDot()">Scale</button>
+        <div class="square"></div>
+        <button id="rotateButton" onclick="rotateSquare()">Rotate</button>
+        <div class="circle"></div>
+        <button id="moveButton" onclick="moveDot()">Move</button></center>
+
+    <script>
+        function scaleDot() {
+            circle = document.getElementsByClassName('circle')[0];
+            button = document.getElementById('scaleButton');
+            if (button.innerHTML === "Scale") {
+                circle.classList.add('scale');
+                button.innerHTML = "Reset";
+            } else {
+                circle.classList.remove('scale');
+                button.innerHTML = "Scale";
+            }
+        }
+
+        function rotateSquare() {
+            square = document.getElementsByClassName('square')[0];
+            button = document.getElementById('rotateButton');
+            if (button.innerHTML === "Rotate") {
+                square.classList.add('rotate');
+                button.innerHTML = "Reset";
+            } else {
+                square.classList.remove('rotate');
+                button.innerHTML = "Rotate";
+            }
+        }
+
+        function moveDot() {
+            circle = document.getElementsByClassName('circle')[1];
+            button = document.getElementById('moveButton');
+            if (button.innerHTML === "Move") {
+                circle.classList.add('move');
+                button.innerHTML = "Reset";
+            } else {
+                circle.classList.remove('move');
+                button.innerHTML = "Move";
+            }
+        }
+        function moveBar() {
+            bar = document.getElementsByClassName('bar')[0];
+            button = document.getElementById('barButton');
+            if (button.innerHTML === "Pause") {
+                bar.classList.add('paused');
+                button.innerHTML = "Play";
+            } else {
+                bar.classList.remove('paused');
+                button.innerHTML = "Pause";
+            }
+        }</script>
+</body>
 </html>
