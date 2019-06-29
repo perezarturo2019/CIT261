@@ -14,7 +14,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
         <link href="css/theme.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="css/stylesheets" media="screen">
-        
+
     </head>
     <body>
         <section class="page-header">
@@ -22,82 +22,83 @@ and open the template in the editor.
             <h2 class="project-tagline">CIT 261 Portal</h2>
         </section>
         <a class="link animated fadeInUp delay-30s servicelink" href="index.html">Main Menu</a>
-	    <center><h2>Manipulating CSS Class Properties Using JavaScript</h2></center>
+    <center><h2>Manipulating CSS Class Properties Using JavaScript</h2></center>
+    
         <div class="main_content">
-        <div class="col_center">
-            <img id="tkd_team" src="/CIT261/img/IMG_0670.jpg"  onmouseout="removeBorder()" width="50%" onmouseover="addBorder()" 
-                         alt="TaeKwonDo Team"></div><br>
+            <div class="col_center">
+                <img id="tkd_team" src="/CIT261/img/IMG_0670.jpg"  onmouseout="removeBorder()" width="50%" onmouseover="addBorder()" 
+                     alt="TaeKwonDo Team"></div><br>
             <div class="col_right" id="buttons">
-                
+
                 <p class="changeText">Meet the TaeKwonDo Elite Team !!</p>
                 <p><input type="color" id="textcolor" value="#ffffff">
                     <button class="theButtons" type="button" onclick="changeTextColor()">Change Text Color</button></p>
-			<p><button id="thisButton" class="theButtons" type="button" onclick="zoomIn()">Click to Zoom In</button></p>
-			<p><button class="theButtons" type="button" onclick="zoomOut()">Click to Zoom Out</button></p>
-			<p><button class="theButtons" type="button" onclick="changeRadius()">Click to smooth the </button></p>
-			<p><button class="theButtons" type="button" onclick="changeColor()">Click to choose text color</button></p>
-      
-		</div>
-	</div>
+                <p><button id="thisButton" class="theButtons" type="button" onclick="zoomIn()">Click to Zoom In</button></p>
+                <p><button class="theButtons" type="button" onclick="zoomOut()">Click to Zoom Out</button></p>
+                <p><button class="theButtons" type="button" onclick="changeRadius()">Click to smooth the </button></p>
+                <p><button class="theButtons" type="button" onclick="changeColor()">Click to choose text color</button></p>
+
+            </div>
+        </div>
         <br>
-<script>
-    function changeTextColor() {
-		var color = document.getElementById("textcolor").value;
-		var things = document.getElementsByClassName('changeText');
+        <script>
+            function changeTextColor() {
+                var color = document.getElementById("textcolor").value;
+                var things = document.getElementsByClassName('changeText');
 
-		for (var i = 0; i < things.length; i++){
-			things[i].style.color = color;
-		}
+                for (var i = 0; i < things.length; i++) {
+                    things[i].style.color = color;
+                }
 
-	}
-           function changeBackgroundColor(){
-		var color = document.getElementById("favcolor").value;
-		var things = document.getElementById('changeBox')
+            }
+            function changeBackgroundColor() {
+                var color = document.getElementById("favcolor").value;
+                var things = document.getElementById('changeBox')
 
-		things.style.backgroundColor = color;
+                things.style.backgroundColor = color;
 
-	}
+            }
 
-//picture
-function zoomIn()
-{
-	document.getElementById('tkd_team').style.width = "75%";
-}
+            //picture
+            function zoomIn()
+            {
+                document.getElementById('tkd_team').style.width = "75%";
+            }
 
-function zoomOut()
-{
-	document.getElementById('tkd_team').style.width = "50%";
-	document.getElementById('tkd_team').style.borderRadius = "20px";
-}
+            function zoomOut()
+            {
+                document.getElementById('tkd_team').style.width = "50%";
+                document.getElementById('tkd_team').style.borderRadius = "20px";
+            }
 
-function changeRadius()
-{
-	document.getElementById('tkd_team').style.borderRadius = "100px";
-}
+            function changeRadius()
+            {
+                document.getElementById('tkd_team').style.borderRadius = "100px";
+            }
 
-function changeColor()
-{
-	var color = prompt("Choose a color");
-	var buttons = document.getElementsByClassName('theButtons');
-	
-	for(var i=0; i < buttons.length; i++)
-    {
-        buttons[i].style.color = color;
-    }
-}
+            function changeColor()
+            {
+                var color = prompt("Choose a color");
+                var buttons = document.getElementsByClassName('theButtons');
 
-function removeBorder()
-{
-	document.getElementById('tkd_team').style.border = "3px solid black";
-	
-}
+                for (var i = 0; i < buttons.length; i++)
+                {
+                    buttons[i].style.color = color;
+                }
+            }
 
-function addBorder()
-{
-	document.getElementById('tkd_team').style.border = "none";
-	document.getElementById('tkd_team').style.borderRadius = "60px";
+            function removeBorder()
+            {
+                document.getElementById('tkd_team').style.border = "3px solid black";
 
-}
+            }
+
+            function addBorder()
+            {
+                document.getElementById('tkd_team').style.border = "none";
+                document.getElementById('tkd_team').style.borderRadius = "60px";
+
+            }
         </script>
     </body>
 </html>
