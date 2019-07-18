@@ -112,6 +112,8 @@ h2 {
 }
 
 .back-side {
+  height: 125px;
+  width: 125px;
   align: center;
   transition: transform 200ms ease-in-out;
   transform: translateY(-10px);
@@ -122,6 +124,8 @@ h2 {
 }
 
 .card-value {
+  height: 115px;
+  width: 125px;
   position: relative;
   transition: transform 200ms ease-in-out;
   transform: scale(.9);
