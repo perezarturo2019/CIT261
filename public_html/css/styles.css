@@ -89,7 +89,7 @@ h2 {
 
 .card.visible .card-back {
   transform: rotateY(-180deg);
-  transition-duration: 10s;
+  transition-duration: 0s;
 }
 
 .card.visible .card-front {
