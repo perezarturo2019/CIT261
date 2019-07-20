@@ -97,7 +97,7 @@ h2 {
 }
 
 .card.matched .card-front .card-value {
- animation: dance 1s linear infinite 800ms;
+ animation: dance 3s linear infinite 800ms;
 }
 
 .card-back {
